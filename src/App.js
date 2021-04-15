@@ -15,20 +15,6 @@ class App extends Component{
     return{__html}
   }
 
-  // componentDidMount(){
-  //   const text= localStorage.getItem('text')
-  //   if(text){
-  //     this.setState({text})
-  //   }else(
-  //     this.setState({text})
-  //   )
-  // }
-
-  // componentDidUpdate(){
-  //   const {text} = this.state
-  //   localStorage.setItem('text', text)
-  // }
-
   render(){
     const {text} = this.state
     return(
