@@ -1,15 +1,20 @@
 import React, {Component} from 'react'
 import './styles/App.css'
 import {text} from './data/text'
+import marked from 'marked'
 
 class App extends Component{
-  
   state={text}
 
   handleChange=(event)=>{
     const text=event.target.value
     this.setState({text})
   }
+  renderText = (text)=>{
+    const __html = marked(text, {sanitize:true})
+    return{__html}
+  }
+
   render(){
     const {text} = this.state
     return(
@@ -23,8 +28,8 @@ class App extends Component{
               rows="35"/> 
           </div>
           <div className='col-sm-6'>
-            <h1>Résultat</h1>
-            {text}
+            <div dangerouslySetInnerHTML={this.renderText(text)}>
+            </div>
           </div>
 
         </div>
